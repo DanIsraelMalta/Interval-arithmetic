@@ -1,6 +1,4 @@
-# Interval arithmetic class for matlab
-
-### an easy way to handle uncertainty
+### Interval arithmetic class for matlab (an easy way to handle uncertainty)
 
 ####Example #1 - general uncertainty calculation:
 ```matlab
@@ -15,7 +13,7 @@ paint_efficiency = interval(0.7, 1.3); % efficiency changes between painters
 paint_per_can = interval(39.8, 40.2); % [liter]
 paint_cans = 2 * (room_width + room_length) * room_height / (paint_efficiency * paint_per_can);
 % > we need between 1.02 to 2.448 cans of paint
-'''
+```
 
 ####Example #2 - set calculations with intervals:
 ```matlab
@@ -36,10 +34,10 @@ b_diff_a = diff(b, a); % [-5, -3]
 hd = hausdorffDist(a, b); % hausedorff distance = 2
 id = innerDist(d, a); % inner distance = 3
 sd = signedDist(d, b); % signed distance = -1
-'''
+```
 
 ####Example #3 - array uncertainty calculation:
-'''matlab
+```matlab
 % a measurement, bounded by uncertainty
 a = interval(0 : 0.3 : pi, 0.1 : 0.3 : pi+0.1);
 
@@ -59,11 +57,10 @@ plot(b.infimum, 'b'); hold on; plot(b.supremum, 'r');
 grid on;
 legend('function lower bound', 'function upper bound');
 title('function operated on measurement (f = sin(x^2) - 2 * sinh(sqrt(x) / 2))');
-
-'''
+```
 
 ####Example #4 - root of an interval function:
-'''matlab
+```matlab
 % lets find the zero of function: 'f' in interval 'a'
 f = @(x) x.^3 - 2*x - 5;
 a = interval(-20, 20);
@@ -75,10 +72,10 @@ opt.tolFun = 0.1;
 
 % the function zero inside the given inteval:
 x = fzero(f, a, [], opt);
-'''
+```
 
 ####Example #5 - root of an interval function with a supplied gradient:
-'''matlab
+```matlab
 % lets find the zero of function: 'f' with gradient 'g', in interval 'a'
 f = @(x) cos(x);
 g = @(x) -sin(x);
@@ -91,4 +88,4 @@ opt.tolFun = 0.1;
 
 % the function zero inside the given inteval:
 x = fzero(f, a, g, opt);
-'''
+```
