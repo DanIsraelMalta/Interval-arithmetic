@@ -89,3 +89,36 @@ opt.tolFun = 0.1;
 % the function zero inside the given inteval:
 x = fzero(f, a, g, opt);
 ```
+
+%
+% example usage #6 - interval matrix:
+% -----------------------------------------------------------
+```matlab
+% define an interval matrix
+%     [[8, 9], [1, 2],  [6, 7]
+% A =  [3, 4], [5, 6],  [7, 8]
+%      [4, 5], [9, 10], [2, 3]]
+A = interval(magic(3), magic(3)+1);
+
+% what is it's inverse?
+Ainv = inv(A);
+%           [[0.0743,   0.2161], [-0.2556, -0.0373],  [-0.0215,  0.1453]
+% inv(A) =   [-0.1006, -0.0256], [-0.0375,  0.0779],  [0.0595,   0.1476]
+%            [-0.0843,  0.0414], [0.0902,   0.2835],  [-0.1787, -0.0309]]
+
+% it's determinant?
+Adet = det(A); % [-852.125, -142.5098]
+
+% it's upper triangular decomposition?
+[l, u, p] = lu(A);
+%     [[8, 9], [1, 2],      [6, 7]
+% u =  [0, 0], [4, 5.6667], [3.5, 6]
+%      [0, 0], [0, 0],      [-16.7083, -4.4534]]
+
+% what is the solution for Ax = [1; 1; 1]
+b = [1; 1; 1];
+x = linsolve(A, b);
+%    [[-0.1438, 0.1271]
+% x = [-0.0632, 0.1183]
+%     [0.0077,  0.2734]]
+```
