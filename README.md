@@ -59,40 +59,7 @@ legend('function lower bound', 'function upper bound');
 title('function operated on measurement (f = sin(x^2) - 2 * sinh(sqrt(x) / 2))');
 ```
 
-####Example #4 - root of an interval function:
-```matlab
-% lets find the zero of function: 'f' in interval 'a'
-f = @(x) x.^3 - 2*x - 5;
-a = interval(-20, 20);
-
-% define solver parameters
-opt.maxIter = 20;
-opt.tolX = 0.1;
-opt.tolFun = 0.1;
-
-% the function zero inside the given inteval:
-x = fzero(f, a, [], opt);
-```
-
-####Example #5 - root of an interval function with a supplied gradient:
-```matlab
-% lets find the zero of function: 'f' with gradient 'g', in interval 'a'
-f = @(x) cos(x);
-g = @(x) -sin(x);
-a = interval(-9, -5);
-
-% define solver parameters
-opt.maxIter = 20;
-opt.tolX = 0.1;
-opt.tolFun = 0.1;
-
-% the function zero inside the given inteval:
-x = fzero(f, a, g, opt);
-```
-
-%
-% example usage #6 - interval matrix:
-% -----------------------------------------------------------
+####example usage #4 - interval matrix:
 ```matlab
 % define an interval matrix
 %     [[8, 9], [1, 2],  [6, 7]
@@ -121,4 +88,36 @@ x = linsolve(A, b);
 %    [[-0.1438, 0.1271]
 % x = [-0.0632, 0.1183]
 %     [0.0077,  0.2734]]
+```
+
+
+####Example #5 - root of an interval function:
+```matlab
+% lets find the zero of function: 'f' in interval 'a'
+f = @(x) x.^3 - 2*x - 5;
+a = interval(-20, 20);
+
+% define solver parameters
+opt.maxIter = 20;
+opt.tolX = 0.1;
+opt.tolFun = 0.1;
+
+% the function zero inside the given inteval:
+x = fzero(f, a, [], opt);
+```
+
+####Example #6 - root of an interval function with a supplied gradient:
+```matlab
+% lets find the zero of function: 'f' with gradient 'g', in interval 'a'
+f = @(x) cos(x);
+g = @(x) -sin(x);
+a = interval(-9, -5);
+
+% define solver parameters
+opt.maxIter = 20;
+opt.tolX = 0.1;
+opt.tolFun = 0.1;
+
+% the function zero inside the given inteval:
+x = fzero(f, a, g, opt);
 ```
