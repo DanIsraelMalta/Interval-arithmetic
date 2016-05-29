@@ -1,4 +1,6 @@
-### Interval arithmetic class for matlab (an easy way to handle uncertainty)
+### Interval arithmetic class for matlab
+A simple method to perform numerical calculation on regions (bounds; intervals) instead on values.
+This concept is suitable for a variaty of problems, the most common one - handle uncertainties.
 
 ####Example #1 - general uncertainty calculation:
 ```matlab
@@ -61,7 +63,7 @@ title('function operated on measurement (f = sin(x^2) - 2 * sinh(sqrt(x) / 2))')
 
 ####example usage #4 - interval matrix:
 ```matlab
-% define an interval matrix
+% define an interval matrix (each item in the matrix is a given as a region)
 %     [[8, 9], [1, 2],  [6, 7]
 % A =  [3, 4], [5, 6],  [7, 8]
 %      [4, 5], [9, 10], [2, 3]]
@@ -73,7 +75,7 @@ Ainv = inv(A);
 % inv(A) =   [-0.1006, -0.0256], [-0.0375,  0.0779],  [0.0595,   0.1476]
 %            [-0.0843,  0.0414], [0.0902,   0.2835],  [-0.1787, -0.0309]]
 
-% it's determinant?
+% what is the determinant region?
 Adet = det(A); % [-852.125, -142.5098]
 
 % it's upper triangular decomposition?
@@ -82,7 +84,8 @@ Adet = det(A); % [-852.125, -142.5098]
 % u =  [0, 0], [4, 5.6667], [3.5, 6]
 %      [0, 0], [0, 0],      [-16.7083, -4.4534]]
 
-% what is the solution for Ax = [1; 1; 1]
+% if A is bounded region of linear system coefficients,
+% what is the region of the solution A*x = [1; 1; 1] ?
 b = [1; 1; 1];
 x = linsolve(A, b);
 %    [[-0.1438, 0.1271]
