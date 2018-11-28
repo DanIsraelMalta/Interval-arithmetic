@@ -2,7 +2,7 @@
 A simple method to perform numerical calculation on regions (bounds; [intervals](https://en.wikipedia.org/wiki/Interval_arithmetic)) instead on values.
 This concept is suitable for a variaty of problems, the most common one - handle uncertainties.
 
-####Example #1 - general uncertainty calculation:
+#### Example #1 - general uncertainty calculation:
 ```matlab
 % under assumption that the number of paint cans to paint
 % the living room is calculated using this equatlon:
@@ -17,7 +17,7 @@ paint_cans = 2 * (room_width + room_length) * room_height / (paint_efficiency * 
 % > we need between 1.02 to 2.448 cans of paint, which means we should buy 3 cans!
 ```
 
-####Example #2 - set calculations with intervals:
+#### Example #2 - set calculations with intervals:
 ```matlab
 % intervals
 a = interval(-3, 5);
@@ -38,7 +38,7 @@ id = innerDist(d, a); % inner distance = 3
 sd = signedDist(d, b); % signed distance = -1
 ```
 
-####Example #3 - array uncertainty calculation (operations on vectors in which an element is a region rather then a value):
+#### Example #3 - array uncertainty calculation (operations on vectors in which an element is a region rather then a value):
 ```matlab
 % a measurement, bounded by uncertainty.
 % each measurement is given in a resoultion or with uncertainty of 0.1
@@ -62,7 +62,7 @@ legend('function lower bound', 'function upper bound');
 title('function operated on measurement (f = sin(x^2) - 2 * sinh(sqrt(x) / 2))');
 ```
 
-####example usage #4 - interval matrix (operations on matrix in which an element is a region rather then a value):
+#### example usage #4 - interval matrix (operations on matrix in which an element is a region rather then a value):
 ```matlab
 % define an interval matrix
 %     [[8, 9], [1, 2],  [6, 7]
@@ -95,7 +95,7 @@ x = linsolve(A, b);
 ```
 
 
-####Example #5 - root of a function defined upon an interval:
+#### Example #5 - root of a function defined upon an interval:
 ```matlab
 % lets find the zero of function: 'f' in interval 'a'
 f = @(x) x.^3 - 2*x - 5;
@@ -110,7 +110,7 @@ opt.tolFun = 0.1;
 x = fzero(f, a, [], opt);
 ```
 
-####Example #6 - root of an interval function with a supplied gradient:
+#### Example #6 - root of an interval function with a supplied gradient:
 ```matlab
 % lets find the zero of function: 'f' with gradient 'g', in interval 'a'
 f = @(x) cos(x);
