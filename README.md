@@ -1,6 +1,7 @@
 ### Interval arithmetic class for matlab
 A simple method to perform numerical calculation on regions (bounds; [intervals](https://en.wikipedia.org/wiki/Interval_arithmetic)) instead on values.
 This concept is suitable for a variaty of problems, the most common one - handle uncertainties.
+A nativ implementation of Interval object can be found in NumericalPlusPlus repository in this account.
 
 #### Example #1 - general uncertainty calculation:
 ```matlab
