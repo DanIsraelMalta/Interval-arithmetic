@@ -2112,8 +2112,8 @@ classdef interval < handle
              upper(inRegion) = max(cos(xi_interval.infimum(inRegion)), cos(xi_interval.supremum(inRegion)));
 
                 % derivative @ < 2*pi
-                sinSignLower(inRegion) = sign(sin(xi_interval.infimum(inRegion)));
-                sinSignUpper(inRegion) = sign(sin(xi_interval.supremum(inRegion)));
+                sinSignLower(inRegion) = sign(-sin(xi_interval.infimum(inRegion)));
+                sinSignUpper(inRegion) = sign(-sin(xi_interval.supremum(inRegion)));
 
                  % crossover points
                 sinSignLower(sinSignLower == 0) = -1 * sign(lower(sinSignLower == 0));
